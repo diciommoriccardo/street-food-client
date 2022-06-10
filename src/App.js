@@ -1,9 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Header from './component/Header';
 
-function App() {
-  return (
-    <div className="App">
+
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      user: null,
+      sidebarOpened: false,
+    }
+  }
+
+  render(){
+    return(
+      <div className="App">
+      <Header></Header>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -19,7 +32,8 @@ function App() {
         </a>
       </header>
     </div>
-  );
+    )
+  }
 }
 
 export default App;

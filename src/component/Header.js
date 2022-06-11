@@ -7,14 +7,14 @@ class Header extends React.Component{
 
     render() {
         return(
-            <div>
+            <header className="dk-header">
                 <div>
                     <h2>PolibaBurger</h2>
                 </div>
                 <div>
                     <img src="../logo.svg" alt="" />
                 </div>
-            </div>  
+            </header>  
         );
     }
 }

@@ -6,6 +6,7 @@ import Sidebar from './component/Sidebar';
 import menuContent from './component/menuContent';
 import Orders from './component/Orders';
 import Cart from './component/Cart';
+import Login from './component/login';
 import {BrowserRouter as Router, Route, Navigate, Routes} from 'react-router-dom';
 
 
@@ -22,18 +23,18 @@ class App extends React.Component{
     return(
       <div className="App">
       <Header />
+      <Router>
       <Sidebar />
       <main>
         <section>
-          <Router>
             <Routes>
-              <Route exact path="/" element={this.loggedIn ? <menuContent /> : <Navigate to="/login" replace={true}/>} />
+              <Route exact path="/" element={this.loggedIn ? <menuContent /> : <Navigate to="/login"/>} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/cart" element={<Cart />} />
             </Routes>
-          </Router>
         </section>
       </main>
+      </Router>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

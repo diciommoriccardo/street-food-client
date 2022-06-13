@@ -14,13 +14,11 @@ class Sidebar extends React.Component{
     render() {
         return( 
             <div>
-                <Router>
-                    <ul>
-                        <li><NavLink to="/"> Menù</NavLink></li>
-                        <li><NavLink to="/orders">Ordini</NavLink></li>
-                        <li><NavLink to="/cart">Carrello</NavLink></li>
-                    </ul>
-                </Router> 
+               <ul>
+                    <li><NavLink to="/"> Menù</NavLink></li>
+                    <li><NavLink to="/orders">Ordini</NavLink></li>
+                    <li><NavLink to="/cart">Carrello</NavLink></li>
+                </ul> 
             </div>
                        
         )

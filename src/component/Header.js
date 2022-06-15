@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/header.css";
 
 class Header extends React.Component{
     constructor(){
@@ -9,10 +10,10 @@ class Header extends React.Component{
         return(
             <header className="dk-header">
                 <div>
-                    <h2>PolibaBurger</h2>
+                    <h2 className="titolo">POLIBA BURGER</h2>
                 </div>
-                <div>
-                    <img src="../logo.svg" alt="" />
+                <div className="img">
+                    <img src="../Poliba burgers.png" alt="" />
                 </div>
             </header>  
         );

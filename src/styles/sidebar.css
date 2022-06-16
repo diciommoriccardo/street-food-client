@@ -54,6 +54,13 @@ li:hover{
 
 }
 
-li.active a{
-  color: rgb(238, 255, 253);
+a:not(:focus){
+  opacity: 0.2;
 }
+
+a:focus li{
+  background-color:#c0e6de;
+  background: linear-gradient(90deg, rgba(189,228,231,1) 0%,#c0e6de 73%);
+  border-radius: 15px;
+}
+

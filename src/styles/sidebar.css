@@ -8,8 +8,8 @@
   top: 0;
   width: 17%;
   height: 100vh;
-  background: rgb(189,228,231);
-  background: linear-gradient(90deg, rgba(189,228,231,1) 0%, rgba(49,168,176,1) 73%);
+  background: #008295;
+  background: linear-gradient(90deg, rgba(189,228,231,1) 0%,#008295  73%);
   font-size: 0.65em;
   transition: width 1000ms;
   box-shadow:10px 10px 10px rgba(0,0,0,.4);
@@ -25,20 +25,19 @@
   display: block;
   transition: all ease-out 300ms;
   list-style: none;
-  justify-content: center;
-
-      
+  justify-content: left;
+  padding: 0;
 }
+
 .listaContainer a{
-  color: white;
+  color: black;
   font-size: 2vh;
   font-family: Josefine;
   text-decoration: none;
-
 }
 
 .listaContainer li{
-  text-align: center;
+  text-align: left;
   justify-content: center;
   background-size: 30px;
   padding: 10px;
@@ -49,11 +48,15 @@
 }
 
 li:hover{
-  background-color:rgba(56, 140, 151, 0.513);
+  background-color:#008295;
   border-radius: 5px;
 
 }
 
-li.active a{
-  color: rgb(238, 255, 253);
+a:not(:focus){
+  opacity: 0.2;
+}
+
+li:focus a{
+  background-color:#008295;
 }

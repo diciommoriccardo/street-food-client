@@ -3,6 +3,8 @@ import {
     BrowserRouter as Router, 
     NavLink } from 'react-router-dom';
 import "../styles/sidebar.css";
+import { Restaurant, Summarize, ShoppingCart } from "@mui/icons-material";
+
 
 class Sidebar extends React.Component{
     constructor(){
@@ -16,9 +18,9 @@ class Sidebar extends React.Component{
         return( 
             <div className="sidebarContainer">
                <ul className="listaContainer">
-                    <li className="active"><NavLink to="/"> Menu</NavLink></li>
-                    <li><NavLink to="/orders">Ordini</NavLink></li>
-                    <li><NavLink to="/cart">Carrello</NavLink></li>
+                    <li><Restaurant /><NavLink to="/"> Menu</NavLink></li>
+                    <li><NavLink to="/orders"><Summarize />Ordini</NavLink></li>
+                    <li><NavLink to="/cart"><ShoppingCart />Carrello</NavLink></li>
                 </ul> 
             </div>
                        

@@ -9,9 +9,6 @@ class Header extends React.Component{
     render() {
         return(
             <header className="dk-header">
-                <div>
-                    <h2 className="titolo">POLIBA BURGER</h2>
-                </div>
                 <div className="img">
                     <img src="../Poliba burgers.png" alt="" />
                 </div>

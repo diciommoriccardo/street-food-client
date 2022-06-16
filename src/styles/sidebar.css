@@ -57,21 +57,3 @@ li:hover{
 li.active a{
   color: rgb(238, 255, 253);
 }
-
-
-
-/*
-.sidebarContainer li:not(.active)::after {
-  opacity: 0.2;
-}
-
-.sidebarContainer li:hover{
-  opacity: 0.3;
-}
-
-
-
-.sidebarContainer a:active{
-  color: black;
-} */
-

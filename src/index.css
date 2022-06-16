@@ -1,3 +1,11 @@
+:root {
+  --BLU_POLIBA: #008295;
+  --LILIAC: #AC92A6;
+  --ATOMIC: #F68E5F;
+  --POWDER: #C0E6DE;
+  --PINE-TREE: #30362F;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

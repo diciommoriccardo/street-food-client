@@ -1,0 +1,72 @@
+@font-face {
+  font-family: "Josefine";
+  src: url("../assets/ubunt/josefinsans/JosefinSans-Italic-VariableFont_wght.ttf") format("truetype");
+}
+
+.sidebarContainer{
+  position: fixed;
+  width: 25%;
+  height: 100vh;
+  background: #31A8B0;
+  font-size: 0.65em;
+  transition: width 1000ms;
+  box-shadow:10px 10px 10px rgba(0,0,0,.4);
+  cursor:pointer;
+  }
+
+.listaContainer{
+  text-transform: uppercase;
+  text-decoration: rgb(185, 204, 207);
+  letter-spacing: 0.4em;
+  display: block;
+  transition: all ease-out 300ms;
+  list-style: none;
+
+      
+}
+.listaContainer a{
+  color: white;
+  font-size: 2vh;
+  font-family: Josefine;
+  text-decoration: none;
+
+}
+
+.listaContainer li{
+  text-align: center;
+  justify-content: center;
+  background-size: 30px;
+  padding: 10px;
+}
+
+.listaContainer a:not(:active)::after{
+  opacity: 0.2;
+}
+
+li:hover{
+  background-color:rgba(56, 140, 151, 0.513);
+  border-radius: 5px;
+
+}
+
+li.active a{
+  color: rgb(238, 255, 253);
+}
+
+
+
+/*
+.sidebarContainer li:not(.active)::after {
+  opacity: 0.2;
+}
+
+.sidebarContainer li:hover{
+  opacity: 0.3;
+}
+
+
+
+.sidebarContainer a:active{
+  color: black;
+} */
+

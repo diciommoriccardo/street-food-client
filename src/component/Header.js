@@ -10,7 +10,7 @@ class Header extends React.Component{
         return(
             <header className="dk-header">
                 <div className="img">
-                    <img src="../Poliba burgers.png" alt="" />
+                    <img src="../img/logo_header.png" alt="" />
                 </div>
             </header>  
         );

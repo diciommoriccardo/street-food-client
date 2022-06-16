@@ -4,15 +4,19 @@
 }
 
 .sidebarContainer{
-  position: fixed;
-  width: 25%;
+  /* position: absolute; */
+  top: 0;
+  width: 17%;
   height: 100vh;
-  background: #31A8B0;
+  background: rgb(189,228,231);
+  background: linear-gradient(90deg, rgba(189,228,231,1) 0%, rgba(49,168,176,1) 73%);
   font-size: 0.65em;
   transition: width 1000ms;
   box-shadow:10px 10px 10px rgba(0,0,0,.4);
   cursor:pointer;
-  }
+  z-index: 1000;
+    position: fixed;
+}
 
 .listaContainer{
   text-transform: uppercase;
@@ -21,6 +25,7 @@
   display: block;
   transition: all ease-out 300ms;
   list-style: none;
+  justify-content: center;
 
       
 }
@@ -52,21 +57,3 @@ li:hover{
 li.active a{
   color: rgb(238, 255, 253);
 }
-
-
-
-/*
-.sidebarContainer li:not(.active)::after {
-  opacity: 0.2;
-}
-
-.sidebarContainer li:hover{
-  opacity: 0.3;
-}
-
-
-
-.sidebarContainer a:active{
-  color: black;
-} */
-

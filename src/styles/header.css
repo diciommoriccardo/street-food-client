@@ -1,0 +1,33 @@
+@font-face {
+    font-family: "Josefine";
+    src: url("../assets/ubunt/josefinsans/JosefinSans-Italic-VariableFont_wght.ttf") format("truetype");
+  }
+  
+
+
+.dk-header{
+    background-color: #31A8B0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 170px;
+}
+
+.img img{
+    max-width: 100%;
+    height: 170px;
+    width: 170px;
+    padding: 0%;
+    /* padding-left: 300px; */
+}
+
+/* .titolo{
+    position: relative;
+    text-align: center;
+    font-family: Josefine;
+    padding-bottom: 10px;
+    font-size: small;
+    align-items: center;
+    padding-right: 100px;
+} */

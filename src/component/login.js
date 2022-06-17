@@ -1,10 +1,15 @@
 import React from "react";
+import '../styles/login.css';
 
 class Login extends React.Component{
     constructor(props){
         super(props);
-        this.chechToken = this.chechToken.bind(this);
+        this.checkToken = this.checkToken.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    checkToken(){
+
     }
 
     handleSubmit(e){

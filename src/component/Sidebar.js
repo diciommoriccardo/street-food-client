@@ -18,9 +18,9 @@ class Sidebar extends React.Component{
         return( 
             <div className="sidebarContainer">
                <ul className="listaContainer">
-                    <li><Restaurant /><NavLink to="/"> Menu</NavLink></li>
-                    <li><NavLink to="/orders"><Summarize />Ordini</NavLink></li>
-                    <li><NavLink to="/cart"><ShoppingCart />Carrello</NavLink></li>
+                    <NavLink to="/" ><li><Restaurant /> Menu</li></NavLink>
+                    <NavLink to="/orders"><li><Summarize />Ordini</li></NavLink>
+                    <NavLink to="/cart" ><li><ShoppingCart />Carrello</li></NavLink>
                 </ul> 
             </div>
                        

@@ -1,8 +1,8 @@
-const SERVER_REST = {
-    HOST: '0.0.0.0',
-    PORT:  8080,
-    HOST_SECURE: '0.0.0.0',
-    PORT_SECURE: 8443
+const PROXY = {
+    HOST: 'localhost',
+    PORT:  5000,
+    HOST_SECURE: 'localhost',
+    PORT_SECURE: 5000
 }
 
 const SERVER_SOCKET = {
@@ -11,6 +11,6 @@ const SERVER_SOCKET = {
 }
 
 export {
-    SERVER_REST,
+    PROXY,
     SERVER_SOCKET
 }

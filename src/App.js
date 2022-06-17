@@ -7,7 +7,9 @@ import menuContent from './component/menuContent';
 import Orders from './component/Orders';
 import Cart from './component/Cart';
 import Login from './component/login';
+import { SERVER_SOCKET } from './config/config';
 import {BrowserRouter as Router, Route, Navigate, Routes} from 'react-router-dom';
+import { io } from 'socket.io-client';
 
 
 class App extends React.Component{
@@ -17,6 +19,10 @@ class App extends React.Component{
       user: null,
       loggedIn: true
     }
+  }
+
+  componentDidMount(){
+    const socket = io(`http://localhost:${SERVER_SOCKET}`)
   }
 
   render(){

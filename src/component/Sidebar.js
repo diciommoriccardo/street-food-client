@@ -4,13 +4,14 @@ import {
     NavLink } from 'react-router-dom';
 import "../styles/sidebar.css";
 import { Restaurant, Summarize, ShoppingCart } from "@mui/icons-material";
+import { Badge } from "@mui/material";
 
 
 class Sidebar extends React.Component{
     constructor(){
         super();
         this.state = {
-            active: ''
+            newOrders: 0
         }
     }
 
@@ -19,7 +20,7 @@ class Sidebar extends React.Component{
             <div className="sidebarContainer">
                <ul className="listaContainer">
                     <NavLink to="/" ><li><Restaurant /> Menu</li></NavLink>
-                    <NavLink to="/orders"><li><Summarize />Ordini</li></NavLink>
+                    <NavLink to="/orders"><li><Badge color="secondary" badgeContent={this.state.newOrders} max={99}><Summarize /></Badge>Ordini</li></NavLink>
                     <NavLink to="/cart" ><li><ShoppingCart />Carrello</li></NavLink>
                 </ul> 
             </div>

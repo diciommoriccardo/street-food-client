@@ -1,4 +1,5 @@
 import React from "react";
+import RecipeReviewCard from "./Componenti";
 
 class Orders extends React.Component{
     constructor(props){
@@ -6,7 +7,10 @@ class Orders extends React.Component{
     }
 
     render() {
-        return <h2> Orders</h2>
+        return ( <div>
+            <h2> Orders</h2>
+            <RecipeReviewCard></RecipeReviewCard>
+       </div> ) ;
     }
 }
 

@@ -1,17 +1,18 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
-import menuHeader from "./menuHeader";
+import MenuHeader from "./menuHeader";
 
-class menuContent extends React.Component{
+class MenuContent extends React.Component{
     constructor(){
         super();
     }
 
     render() {
         return(
-            <menuHeader />
+            <div><MenuHeader></MenuHeader></div>
+
         )
     }
 }
 
-export default menuContent;
+export default MenuContent;

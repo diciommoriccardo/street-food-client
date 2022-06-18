@@ -1,12 +1,9 @@
 import React from "react";
 
-class menuHeader extends React.Component{
-    constructor(props){
-        super(props);
-        this.state = {}
-    }
 
-    render(){
+
+
+export default function MenuHeader() {
         return(
             <header>
                 <h3>
@@ -19,8 +16,7 @@ class menuHeader extends React.Component{
                         <a href="/">Dessert</a>
                     </nav>
             </header>
-        )
-    }
+        );
+
 }
 
-export default menuHeader;

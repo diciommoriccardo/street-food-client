@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, NavLink } from "react-router-dom";
 import MenuHeader from "./menuHeader";
+import FoodSection from "./foodSection";
 
 class MenuContent extends React.Component{
     constructor(){
@@ -9,7 +10,10 @@ class MenuContent extends React.Component{
 
     render() {
         return(
-            <div><MenuHeader></MenuHeader></div>
+            <div>
+                <MenuHeader/>
+                <FoodSection />
+            </div>
 
         )
     }

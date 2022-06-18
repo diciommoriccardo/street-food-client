@@ -38,7 +38,7 @@ class App extends React.Component{
       <Sidebar />
           <section> 
             <Routes>
-              <Route exact path="/" element={<MenuContent />} />
+              <Route exact path="/menu" element={<MenuContent />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/cart" element={<Cart />} />
               <Route path='/login' element={<Login />} /> 

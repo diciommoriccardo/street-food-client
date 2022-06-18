@@ -4,7 +4,6 @@
 }
 
 .sidebarContainer{
-  /* position: absolute; */
   top: 0;
   width: 17%;
   height: 100vh;
@@ -13,9 +12,8 @@
   font-size: 0.65em;
   transition: width 1000ms;
   box-shadow:10px 10px 10px rgba(0,0,0,.4);
-  cursor:pointer;
   z-index: 1000;
-    position: fixed;
+  position: fixed;
 }
 
 .listaContainer{
@@ -43,21 +41,17 @@
   padding: 10px;
 }
 
-.listaContainer a:not(:active)::after{
-  opacity: 0.2;
-}
-
 li:hover{
   background-color:#008295;
   border-radius: 5px;
 
 }
 
-a:not(:focus){
-  opacity: 0.2;
+[aria-current] li{
+  background-color:#008295;
 }
 
-li:focus a{
-  background-color:#008295;
+.listaContainer a:not([aria-current]){
+  opacity: 0.2;
 }
 

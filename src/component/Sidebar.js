@@ -19,7 +19,7 @@ class Sidebar extends React.Component{
         return( 
             <div className="sidebarContainer">
                <ul className="listaContainer">
-                    <NavLink to="/" ><li><Restaurant /> Menu</li></NavLink>
+                    <NavLink to="/menu" ><li><Restaurant /> Menu</li></NavLink>
                     <NavLink to="/orders"><li><Badge color="secondary" badgeContent={this.state.newOrders} max={99}><Summarize /></Badge>Ordini</li></NavLink>
                     <NavLink to="/cart" ><li><ShoppingCart />Carrello</li></NavLink>
                 </ul> 

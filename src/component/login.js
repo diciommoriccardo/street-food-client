@@ -1,5 +1,8 @@
 import React from "react";
 import '../styles/login.css';
+import GoogleIcon from '@mui/icons-material/Google';
+import PersonIcon from '@mui/icons-material/Person';
+import LockIcon from '@mui/icons-material/Lock';
 
 class Login extends React.Component{
     constructor(props){
@@ -18,45 +21,40 @@ class Login extends React.Component{
 
     render(){
         return(
-            <div class="container">
-            <div class="row">
-            <div class="col-lg-3 col-md-2"></div>
-            <div class="col-lg-6 col-md-8 login-box">
-                <div class="col-lg-12 login-key">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div>
-                <div class="col-lg-12 login-title">
-                    ADMIN PANEL
-                </div>
-
-                <div class="col-lg-12 login-form">
-                    <div class="col-lg-12 login-form">
-                        <form>
-                            <div class="form-group">
-                                <label class="form-control-label">USERNAME</label>
-                                <input type="text" class="form-control" />
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">PASSWORD</label>
-                                <input type="password" class="form-control" i />
-                            </div>
-
-                            <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-6 login-btm login-text">
-                                    
-                                </div>
-                                <div class="col-lg-6 login-btm login-button">
-                                    <button type="submit" class="btn btn-outline-primary">LOGIN</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-2"></div>
-            </div>
-        </div>
-        </div>
-        )
+            <div className="container">
+	<div className="screen">
+		<div className="screen__content"> 
+			<form className="login"> 
+                <h1 className="titolo_login"> EFFETTUA QUI IL TUO LOGIN! </h1>
+				<div className="login__field">
+                    <PersonIcon className="login__icon"/>
+					<input type="text" className="login__input" placeholder="Email" />
+				</div>
+				<div className="login__field">
+                    <LockIcon className="login__icon"/>
+					<input type="password" className="login__input" placeholder="Password" />
+				</div>
+				<button className="button login__submit">
+					<span className="button__text">Login Now</span>
+					<i className="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div className="social-login">
+				<div className="social-icons">
+					<a className="logo" href="http://localhost:5000/login/google"> <GoogleIcon/></a>
+					
+				</div>
+			</div>
+		</div>
+		<div className="screen__background">
+			<span className="screen__background__shape screen__background__shape4"></span>
+			<span className="screen__background__shape screen__background__shape3"></span>		
+			<span className="screen__background__shape screen__background__shape2"></span>
+			<span className="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+)
     }
 }
 

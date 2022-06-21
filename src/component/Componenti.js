@@ -108,5 +108,6 @@ export default function RecipeReviewCard(props) {
         </CardContent>
       </Collapse>
     </Card>
+
   );
 }

@@ -6,10 +6,9 @@ export default{
     getAll: (next = null) => {
         return fetch(URL, {
             //headers: HEADERS
-        }).then(data => { 
-            console.log(data)
-            return data;
-        })
+        }).then(res => res.json())
+        .then(data => {console.log(data); return data;})
+        .catch(err => console.log(err))
     },
 }
 // export default {

@@ -12,6 +12,8 @@ import {BrowserRouter as Router, Route, Navigate, Routes} from 'react-router-dom
 import { io } from 'socket.io-client';
 import MediaCard from "./component/MenuCard";
 import RecipeReviewCard from "./component/Componenti";
+import MediaQuery from 'react-responsive'
+import MobileMenu from './component/mobileMenu';
 
 
 class App extends React.Component{
@@ -24,18 +26,22 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    const socket = io(`http://localhost:${SERVER_SOCKET}`)
+    // const socket = io(`http://localhost:${SERVER_SOCKET}`)
   }
 
   render(){
     let {loggedIn, type} = this.state;
     return(
+      <Router>
       <div className="App">
       <Header />
-      <Router>
+      <MediaQuery maxWidth={900}><MobileMenu /> </MediaQuery>
+      
       {!loggedIn && <Navigate to={"/login"} replace={true} />}    
-      <main>
-      <Sidebar />
+      <main >
+      
+      <MediaQuery minWidth={901}> <Sidebar /> </MediaQuery>
+      
           <section> 
             <Routes>
               <Route exact path="/menu" element={<MenuContent />} />
@@ -45,8 +51,8 @@ class App extends React.Component{
             </Routes>
           </section>
       </main>  
-      </Router>
     </div>
+    </Router>
     )
   }
 }

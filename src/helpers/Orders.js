@@ -1,5 +1,35 @@
-import { SERVER_REST } from "../config/config.js";
+import { PROXY } from "../config/config.js";
 
-const OrdersServices = {
-    
+const URL = `http://${PROXY.HOST}:${PROXY.PORT}/api/v1/orders`
+
+export default{
+    getAll: (next = null) => {
+        return fetch(URL, {
+            //headers: HEADERS
+        }).then(data => { 
+            console.log(data)
+            return data;
+        })
+    },
 }
+// export default {
+    
+
+//     getOne: (id) => {
+//         return fetch(BASE_URL + '/' + id, {
+//             headers: HEADERS
+//         }).then(res => res.json())
+//             .then(data => data)
+//     },
+
+//     postReview: (requestBody) => {
+//         return fetch(BASE_URL + '/review',
+//             {
+//                 method: 'post',
+//                 body: JSON.stringify(requestBody),
+//                 headers: HEADERS
+//             })
+//             .then(res => res.json())
+//     }
+// }
+

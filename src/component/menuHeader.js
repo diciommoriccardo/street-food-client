@@ -1,7 +1,5 @@
 import React from "react";
-
-
-
+import { NavLink } from "react-router-dom";
 
 export default function MenuHeader() {
         return(
@@ -10,10 +8,30 @@ export default function MenuHeader() {
                     Consulta il nostro menù
                 </h3>
                     <nav>
-                        <a href="/">Panini</a>
-                        <a href="/">Pizze</a>
-                        <a href="/">Bibite</a>
-                        <a href="/">Dessert</a>
+                        <NavLink to={{
+                            pathname:"/menu",
+                            state:{active:"panini"}
+                        }}>
+                        Panini
+                        </NavLink>
+                        <NavLink to={{
+                            pathname:"/menu",
+                            state:{active:"pizze"}
+                        }}>
+                        Pizze
+                        </NavLink>
+                        <NavLink to={{
+                            pathname:"/menu",
+                            state:{active:"bibite"}
+                        }}>
+                        Bibite
+                        </NavLink>
+                        <NavLink to={{
+                            pathname:"/menu",
+                            state:{active:"dessert"}
+                        }}>
+                        dessert
+                        </NavLink>
                     </nav>
             </header>
         );

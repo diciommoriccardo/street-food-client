@@ -1,7 +1,7 @@
 const PROXY = {
-    HOST: 'localhost',
+    HOST: 'localho.st',
     PORT:  5000,
-    HOST_SECURE: 'localhost',
+    HOST_SECURE: 'localho.st',
     PORT_SECURE: 5000
 }
 

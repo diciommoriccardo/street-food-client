@@ -1,0 +1,13 @@
+@font-face {
+    font-family: "Josefine";
+    src: url("../assets/ubunt/josefinsans/JosefinSans-Italic-VariableFont_wght.ttf") format("truetype");
+  }
+  
+
+a{
+    text-decoration: none;
+}
+
+.MuiContainer-root{
+    background-color: var(--BLU_POLIBA);
+}

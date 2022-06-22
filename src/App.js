@@ -37,7 +37,7 @@ class App extends React.Component{
       <div className="App">
       <Header />
       
-      {!loggedIn && <Navigate to={"/login"} replace={true} />}    
+         
       <main >
       
           <section> 

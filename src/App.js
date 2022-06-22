@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import Header from './component/Header';
+import Registrazione from './component/Registrazione';
 import Sidebar from './component/Sidebar';
 import MenuContent from './component/menuContent';
 import Orders from './component/Orders';
@@ -47,7 +48,8 @@ class App extends React.Component{
               <Route exact path="/menu" element={<MenuContent />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path='/login' element={<Login />} /> 
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Registrazione/>} /> 
             </Routes>
           </section>
       </main>  

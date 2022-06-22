@@ -36,12 +36,9 @@ class App extends React.Component{
       <Router>
       <div className="App">
       <Header />
-      <MediaQuery maxWidth={900}><MobileMenu /> </MediaQuery>
       
       {!loggedIn && <Navigate to={"/login"} replace={true} />}    
       <main >
-      
-      <MediaQuery minWidth={901}> <Sidebar /> </MediaQuery>
       
           <section> 
             <Routes>

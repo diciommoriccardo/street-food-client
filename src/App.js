@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import React, { useEffect, useState } from 'react';
 import Header from './component/Header';
+import Registrazione from './component/Registrazione';
 import Sidebar from './component/Sidebar';
 import MenuContent from './component/menuContent';
 import Orders from './component/Orders';
@@ -54,14 +55,13 @@ function App(){
       <MediaQuery maxWidth={900}><MobileMenu /> </MediaQuery>   
       <main >
       
-      <MediaQuery minWidth={901}> <Sidebar /> </MediaQuery>
-      
           <section> 
             <Routes>
               <Route exact path="/menu" element={<MenuContent />} />
-              <Route path="/orders" element={!loggedIn ? <Navigate to={"/login"} /> : <Orders />} />
-              <Route path="/cart" element={!loggedIn ? <Navigate to={"/login"} /> : <Cart />} />
-              <Route path='/login' element={<Login />} /> 
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Registrazione/>} /> 
             </Routes>
           </section>
       </main>  

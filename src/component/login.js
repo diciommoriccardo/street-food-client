@@ -22,14 +22,14 @@ class Login extends React.Component{
 
     }
 
-    handleSubmit(e){
+    async handleSubmit(e){
         e.preventDefault();
 		authServices.login(this.state.email, this.state.password)
 		.then(data => {
-			window.location.href = "/menu"
+			console.log(data)
 		})
-		.catch(err => alert(`Errore nel login! ${err}`))
-    }
+		.catch(err => alert(err))
+	}
 
 	handleChange(e){
   		this.setState({

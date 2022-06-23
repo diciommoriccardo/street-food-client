@@ -11,6 +11,7 @@
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.1.3",
+    "mkcert": "^1.5.0",
     "react": "^18.1.0",
     "react-bootstrap": "^2.4.0",
     "react-burger-menu": "^3.0.8",
@@ -18,7 +19,7 @@
     "react-jwt": "^1.1.6",
     "react-responsive": "^9.0.0-beta.10",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "socket.io-client": "^4.5.1",
     "universal-cookie": "^4.0.4",
     "web-vitals": "^2.1.4"

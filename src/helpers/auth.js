@@ -6,25 +6,24 @@ const URL = `http://${PROXY.HOST}:${PROXY.PORT}`;
 const HEADERS = {'Content-Type': 'application/json'};
 
 export default{
-    login: (email, password) => {
+    login: async (email, password) => {
         return new Promise((resolve, reject) => {
+            console.log(email)
+            console.log(password)
             fetch(`${URL}/login`, {
                 method: 'POST',
                 headers: HEADERS,
+                credentials: "include",
                 body: JSON.stringify({
                     email,
                     password
                 }),
-            })
-            .then(response => {console.log(response); return response.json()})
+            }).then(response => response.json())
             .then(data => {
-              console.log('Success: ', data);
-              cookies.set('accessToken', data.accessToken);
-              resolve(data)
+                cookies.set('accessToken', data.accessToken)
+                return resolve(data)
             })
-            .catch((error) => {
-              reject(error)
-            })
+            .catch(err => reject(err))
         })
     }
 }

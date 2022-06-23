@@ -1,4 +1,9 @@
-/* Position and sizing of burger button */
+@font-face {
+    font-family: "Josefine";
+    src: url("../assets/ubunt/josefinsans/JosefinSans-Italic-VariableFont_wght.ttf") format("truetype");
+  }
+
+
 .bm-burger-button {
     position: fixed;
     width: 36px;
@@ -14,7 +19,7 @@
   
   /* Color/shape of burger icon bars on hover*/
   .bm-burger-bars-hover {
-    background: #a90000;
+    background: black;
   }
   
   /* Position and sizing of clickable cross button */
@@ -38,29 +43,49 @@
   }
   
   /* General sidebar styles */
-  .bm-menu {
-    background: #373a47;
+.bm-menu {
+    background: var(--POWDER);
     padding: 2.5em 1.5em 0;
     font-size: 1.15em;
+    font-family: Josefine;
+    text-decoration: none;
   }
+
+  
+.bm-menu a:focus{
+    background-color: var(--BLU_POLIBA);
+}
+
+.bm-menu a{
+    text-decoration: none;
+    padding: 2px;
+  }
+
   
   /* Morph shape necessary with bubble or elastic */
-  .bm-morph-shape {
+.bm-morph-shape {
     fill: #373a47;
   }
   
   /* Wrapper for item list */
-  .bm-item-list {
+  .bm-item-list{
     color: #b8b7ad;
     padding: 0.8em;
+    list-style: none;
+    justify-content: left;
+    padding: 10px;
+
   }
   
   /* Individual item */
   .bm-item {
     display: inline-block;
+    padding: 10px;
   }
   
   /* Styling of overlay */
   .bm-overlay {
     background: rgba(0, 0, 0, 0.3);
   }
+
+ 

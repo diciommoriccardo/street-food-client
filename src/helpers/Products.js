@@ -10,15 +10,16 @@ const HEADERS = {
     'Content-Type': 'application/json',
 }
 
+
 export default {
     getAll: () => {
-        fetch(`${URL}`,{
-            headers: HEADERS,
-            credentials: "same-origin"
+        return new Promise((resolve, reject) => {
+            resolve(test)
         })
-        .then(data => data.json())
-        .then(json => {console.log(json); return json})
-        .catch(err => console.log(err))
+        // fetch(`${URL}`)
+        // .then(data => data.json())
+        // .then(json => json)
+        // .catch(err => console.log(err))
     },
 
     getAllForCategory: (category) => {

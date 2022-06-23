@@ -2,7 +2,7 @@ const PROXY = {
     HOST: 'localho.st',
     PORT:  5000,
     HOST_SECURE: 'localho.st',
-    PORT_SECURE: 5000
+    PORT_SECURE: 5001
 }
 
 const SERVER_SOCKET = {

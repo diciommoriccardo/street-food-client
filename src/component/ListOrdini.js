@@ -18,8 +18,14 @@ class ListOrdini extends React.Component {
         Orders.getAll(this.state.next)
             .then(data => {
                 this.setState({
-                    RecipeReviewCard: [...this.state.RecipeReviewCard, data.map(r =>
-                        <RecipeReviewCard/>)],
+                    RecipeReviewCard: [...this.state.RecipeReviewCard, data.map(ordine =>{
+                        console.log(ordine)
+                        return <RecipeReviewCard 
+                                    data={ordine.date} 
+                                    price={ordine.price} 
+                                    description={ordine.description}
+                                />
+                    })],
                         
                     next: data[1]
                 })

@@ -1,11 +1,17 @@
-import { PROXY } from "../config/config.js";
+import { SERVER_REST } from "../config/config.js";
+import Cookie from 'universal-cookie'
 
-const URL = `http://${PROXY.HOST}:${PROXY.PORT}/api/v1/orders`
+const cookie = new Cookie();
+const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/orders`
+const HEADERS = {
+    'Authorization': `Bearer ${cookie.get('accessToken')}`,
+    'Content-type': 'application/json'
+}
 
 export default{
     getAll: (next = null) => {
         return fetch(URL, {
-            //headers: HEADERS
+            headers: HEADERS
         }).then(res => res.json())
         .then(data => {console.log(data); return data;})
         .catch(err => console.log(err))

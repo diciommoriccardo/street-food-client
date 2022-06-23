@@ -25,5 +25,19 @@ export default{
             })
             .catch(err => reject(err))
         })
+    },
+
+    signup: (user) => {
+        return new Promise((resolve, reject) => {
+            fetch(`${URL}/signup`, {
+                method: 'POST',
+                headers: HEADERS,
+                credentials: "include",
+                body: JSON.stringify(user),
+            })
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        })
     }
 }

@@ -52,7 +52,6 @@ function App(){
     <Router>
       <div className="App">
       <Header />
-      <MediaQuery maxWidth={900}><MobileMenu /> </MediaQuery>   
       <main >
       
           <section> 

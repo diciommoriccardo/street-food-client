@@ -26,15 +26,22 @@ const ExpandMore = styled((props) => {
   }),
 }));
 
-export default function RecipeReviewCard(props) {
-  const [expanded, setExpanded] = React.useState(false);
+class RecipeReviewCard extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      expanded: false
+    }
+    this.handleExpandClick = this.handleExpandClick.bind(this)
+  }
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  handleExpandClick(){
+    this.setState({expanded: !this.state.expanded})
+  }
 
-  return (
-    <Card sx={{ maxWidth: 345 }}>
+  render(){
+    return(
+      <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -46,20 +53,12 @@ export default function RecipeReviewCard(props) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
-        subheader="September 14, 2016"
-      />
-      <CardMedia
-        component="img"
-        height="194"
-        image="/static/images/cards/paella.jpg"
-        alt="Paella dish"
+        title={this.props.price}
+        subheader={this.props.date}
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          This impressive paella is a perfect party dish and a fun meal to cook
-          together with your guests. Add 1 cup of frozen peas along with the mussels,
-          if you like.
+          {this.props.description}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
@@ -70,15 +69,15 @@ export default function RecipeReviewCard(props) {
           <ShareIcon />
         </IconButton>
         <ExpandMore
-          expand={expanded}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
+          expand={this.state.expanded}
+          onClick={this.handleExpandClick}
+          aria-expanded={this.state.expanded}
           aria-label="show more"
         >
           <ExpandMoreIcon />
         </ExpandMore>
       </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
+      <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
         <CardContent>
           <Typography paragraph>Method:</Typography>
           <Typography paragraph>
@@ -108,6 +107,8 @@ export default function RecipeReviewCard(props) {
         </CardContent>
       </Collapse>
     </Card>
-
-  );
+    )
+  }
 }
+
+export default RecipeReviewCard;

@@ -1,12 +1,12 @@
-import { PROXY } from "../config/config";
+import { PROXY, SERVER_REST } from "../config/config";
 import Cookies from "universal-cookie";
 
-const URL = `http://${PROXY.HOST}:${PROXY.PORT}/api/v1/products/`;
+const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/products/`;
 const cookie = new Cookies()
 const accessToken = cookie.get('accessToken');
 console.log(accessToken)
 const HEADERS = {
-    'Authorization': accessToken,
+    'Authorization': `Bearer ${cookie.get('accessToken')}`,
     'Content-Type': 'application/json',
 }
 
@@ -14,12 +14,13 @@ const HEADERS = {
 export default {
     getAll: () => {
         return new Promise((resolve, reject) => {
-            resolve(test)
+            fetch(URL, {
+                headers: HEADERS
+            })
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
         })
-        // fetch(`${URL}`)
-        // .then(data => data.json())
-        // .then(json => json)
-        // .catch(err => console.log(err))
     },
 
     getAllForCategory: (category) => {

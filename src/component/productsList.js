@@ -19,16 +19,34 @@ class ProductsList extends React.Component{
 
     getAllProducts(){
         productsServices.getAll()
-        .then(data => {console.log(data); return data.map(row => {
-            this.setState(this.state.products.push(<Product data={row}/>))
-        })})
+        .then(data => {
+            this.setState({
+                products: [...this.state.products, data.map(row =>
+                    <Product 
+                        displayName={row.displayName} 
+                        description={row.description} 
+                        price={row.description} 
+                    />
+                )]
+            }) 
+        })
         .catch(err => console.log(err))
     }
 
     getForCategory(category){
-        productsServices.getAllForCategory(category).then(data => data.map(row => {
-            this.setState(this.state.products.push(<Product data={row}/>))
-        }))
+        productsServices.getAllForCategory(category)
+        .then(data => {
+            this.setState({
+                product: [...this.state.products, data.map(row => {
+                    <Product 
+                        displayName={row.displayName} 
+                        description={row.description} 
+                        price={row.description}
+                    /> 
+                })]
+            })
+        })
+        .catch(err => console.log(err))
     }
 
     render(){

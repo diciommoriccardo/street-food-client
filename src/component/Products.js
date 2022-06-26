@@ -10,32 +10,23 @@ import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 class Product extends React.Component{
     constructor(props){
         super(props);
-        this.state={
-            displayName: props.data.displayName,
-            description: props.data.description,
-            price: props.data.price,
-            category: props.data.category
-        }
     }
-}
 
-
-export default function MediaCard() {
-
-  return (
-    <Card sx={{ maxWidth: 345 }}>
+    render(){
+      return(
+        <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         component="img"
         height="140"
         image=""
-        alt={this.state.displayName}
+        alt={this.props.displayName}
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          {this.state.displayName}
+          {this.props.displayName}
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          {this.state.description}
+          {this.props.description}
         </Typography>
       </CardContent>
       <CardActions>
@@ -43,5 +34,9 @@ export default function MediaCard() {
         {/* <Button size="small">Learn More</Button> */}
       </CardActions>
     </Card>
-  );
+      )
+    }
 }
+
+
+export default Product;

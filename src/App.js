@@ -17,6 +17,7 @@ import MediaQuery from 'react-responsive'
 import MobileMenu from './component/mobileMenu';
 import Cookies from 'universal-cookie';
 import {useJwt, decodeToken} from 'react-jwt'
+import ButtonPopup from './component/ButtonPopup'; 
 
 
 
@@ -61,6 +62,7 @@ function App(){
               <Route path="/cart" element={<Cart user={user}/>} />
               <Route path='/login' element={<Login user={user}/>} />
               <Route path='/signup' element={<Registrazione user={user}/>} /> 
+              <Route path='/button' element={<ButtonPopup user={user}/>} /> 
             </Routes>
           </section>
       </main>  

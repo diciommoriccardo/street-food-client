@@ -23,7 +23,7 @@ body {
 }
 
 .screen {		
-	background: linear-gradient(90deg, var(--LILIAC), var(--ATOMIC));		
+	background: white;		
 	position: relative;	
 	height: 600px;
 	width: 360px;	
@@ -78,6 +78,7 @@ body {
 	right: 0;	
 	border-radius: 32px;
 }
+
 .titolo_login{
     font-family: Josefine;
     color: var(--BLU_POLIBA);
@@ -108,8 +109,8 @@ body {
 }
 
 .login__icon {
-	position: absolute;
-	top: 23px;
+	position: relative;
+	top: 10px;
 	color: var(--BLU_POLIBA);
     padding-right: 1%;
 }
@@ -160,22 +161,25 @@ body {
 
 .button__icon {
 	font-size: 24px;
+	position: absolute;
 	margin-left: auto;
 	color:var(--BLU_POLIBA);
 }
 
 .social-login {	
-	position: absolute;
+	position: relative;
 	height: 140px;
 	width: 160px;
-	text-align: center;
+	text-align: right;
 	bottom: 0px;
 	right: 0px;
 	color: var(--BLU_POLIBA);
 }
 
 .social-icons {
-	display: flex;
+	display: inline;
+	padding-left: 100px;
+	position: absolute;
 	align-items: center;
 	justify-content: center;
 }

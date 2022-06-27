@@ -6,8 +6,11 @@
 
 a{
     text-decoration: none;
+    color: black;
+    font-family: Josefine;
 }
 
 .MuiContainer-root{
     background-color: var(--BLU_POLIBA);
 }
+

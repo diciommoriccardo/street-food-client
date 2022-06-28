@@ -57,12 +57,13 @@ function App(){
       
           <section> 
             <Routes>
-              <Route exact path="/menu" element={<MenuContent user={user}/>} />
+              <Route exact path="/menu" element={<MenuContent user={user}/>}>
+                <Route path=':category' element={<MenuContent user={user} />} />
+              </Route>
               <Route path="/orders" element={<Orders user={user}/>} />
               <Route path="/cart" element={<Cart user={user}/>} />
               <Route path='/login' element={<Login user={user}/>} />
               <Route path='/signup' element={<Registrazione user={user}/>} /> 
-              <Route path='/button' element={<ButtonPopup user={user}/>} /> 
             </Routes>
           </section>
       </main>  

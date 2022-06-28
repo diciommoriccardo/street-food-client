@@ -1,63 +1,63 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Product from './Products.js'
 import productsServices from "../helpers/Products.js";
+import { useParams, useLocation } from "react-router-dom";
 
-class ProductsList extends React.Component{
-    constructor(props){
-        super(props)
-        this.state={
-            products:[], 
-            type: null
-        }
-        this.getAllProducts = this.getAllProducts.bind(this);
-        this.getForCategory = this.getForCategory.bind(this);
-    }
+export default function ProductsList(){
+    let [products, setProducts] = useState([]);
+    let [active, setActive] = useState(null);
+    let [offset, setOffset] = useState(0);
+    const limit = 10;
+    const params = useParams();
+    const location = useLocation();
 
-    componentDidMount(){
-        this.state.type === null ? this.getAllProducts() : this.getForCategory()
-    }
-
-    getAllProducts(){
-        productsServices.getAll()
+    const getAllProducts = () => {
+        productsServices.getAll(offset, limit)
         .then(data => {
-            this.setState({
-                products: [...this.state.products, data.map(row =>
-                    <Product 
-                        displayName={row.displayName} 
-                        description={row.description} 
-                        price={row.description} 
-                    />
-                )]
-            }) 
+            setOffset(offset + data.length)
+            setProducts(current => [...current, data.map(row => {
+                return <Product 
+                    displayName={row.displayName} 
+                    description={row.description} 
+                    price={row.price} 
+                />
+            })])
         })
         .catch(err => console.log(err))
     }
 
-    getForCategory(category){
+    const getForCategory = (category) => {
         productsServices.getAllForCategory(category)
         .then(data => {
-            this.setState({
-                product: [...this.state.products, data.map(row => {
-                    <Product 
-                        displayName={row.displayName} 
-                        description={row.description} 
-                        price={row.description}
-                    /> 
-                })]
-            })
+            setProducts(current => [...current, data.map(row => {
+                return <Product 
+                    displayName={row.displayName} 
+                    description={row.description} 
+                    price={row.price}
+                /> 
+            })])
         })
         .catch(err => console.log(err))
     }
 
-    render(){
-        return(
-            this.state.products.length > 0 ? (
-                <div>
-                    {this.state.products}
-                </div>
-            ) : <p>Nessun prodotto trovato</p>
-        )
-    }
-}
+    useEffect(() => {
+        console.log("change active")
+        setProducts([]);
+        active === null ? getAllProducts() : getForCategory(active)
+    }, [active])
 
-export default ProductsList;
+    useEffect(() => {
+        console.log("change location")
+        setActive(params.category)
+    }, [location])
+
+    
+
+    return (
+        products.length > 0 ? (
+            <div>
+                {products}
+            </div>
+        ) : <p>Nessun prodotto trovato</p>
+    )
+}

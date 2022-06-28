@@ -41,13 +41,12 @@ export default function ProductsList(){
     }
 
     useEffect(() => {
-        console.log("change active")
         setProducts([]);
+        setOffset(0)
         active === null ? getAllProducts() : getForCategory(active)
     }, [active])
 
     useEffect(() => {
-        console.log("change location")
         setActive(params.category)
     }, [location])
 

@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import '../styles/aggiuntaProdotto.css'
-// import {DropzoneArea} from 'material-ui-dropzone'
+import {DropzoneArea} from 'material-ui-dropzone'
 
 const currencies = [
   {

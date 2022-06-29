@@ -43,7 +43,7 @@ export default function AddProduct(props) {
     >
      <div className='inner'>
       <div className='AggiuntaProdotto'>
-      <button className="ButtonClose" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</button>
+     
       <TextField className='AggiuntaProdotto' id="Nome prodotto" label="Nome" variant="filled" />
       <TextField className='AggiuntaProdotto' id="Ricetta" label="Ricetta" variant="filled" />
       <TextField className='AggiuntaProdotto' id="Descrizione" label="Breve descrizione" variant="filled" />
@@ -69,6 +69,7 @@ export default function AddProduct(props) {
           ))}
         </TextField>
       </div>
+      <button className="button button2" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</button>
       </div>
       
     </Box>

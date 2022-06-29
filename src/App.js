@@ -20,30 +20,10 @@ import CartContext from './contexts/CartContext';
 
 function App(){
   const [user, setUser] = useState({});
-  const userValue = { user, setUser }
   const [loggedIn, setLoggedIn] = useState(false);
-  const logValue = { loggedIn, setLoggedIn };
+  const userValue = { user, setUser, loggedIn, setLoggedIn }
   const [count, setCount] = useState(0)
   const cartValue = { count, setCount };
-  const cookie = new Cookies();
-  const accessToken = useJwt(cookie.get('accessToken'));
-  const decodedToken = decodeToken(accessToken);
-  
-
-  useEffect(() => {
-    if(!decodedToken) {
-      setUser(null); 
-      setLoggedIn(false);
-      return
-    }
-
-    setUser({
-      email: decodedToken.email,
-      displayName: decodedToken.displayName,
-      type: decodedToken.type
-    })
-    setLoggedIn(true)
-  }, [])
 
 
   return(
@@ -53,18 +33,16 @@ function App(){
           <CartContext.Provider value={cartValue}>
             <Header />
             <main >
-      
             <section> 
               <Routes>
-              
-                  <Route exact path="/menu" element={<MenuContent user={user} />}>
-                    <Route path=':category' element={<MenuContent user={user} />} />
+                  <Route exact path="/menu" element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> }>
+                    <Route path=':category' element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> } />
                   </Route>
                 
-                <Route path="/orders" element={<Orders user={user}/>} />
-                <Route path="/cart" element={<Cart user={user} />} />
-                <Route path='/login' element={<Login user={user}/>} />
-                <Route path='/signup' element={<Registrazione user={user}/>} /> 
+                <Route path="/orders" element={loggedIn ? <Orders /> : <Navigate to="/login" replace={true} /> } />
+                <Route path="/cart" element={loggedIn ? <Cart /> : <Navigate to="/login" replace={true} /> } />
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Registrazione />} /> 
               
               
             </Routes>

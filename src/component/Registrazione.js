@@ -53,7 +53,7 @@ class Registrazione extends React.Component{
   <label id="icon" htmlFor="name"><i className="icon-user"></i></label>
   <input type="text" name="firstName" id="name" placeholder="Nome" required value={this.state.fistName} onChange={this.handleChange}/>
   <label id="icon" htmlFor="name"><i className="icon-user"></i></label>
-  <input type="text" name="lastName" id="cognome" placeholder="Cognome" required value={this.state.lastName} onChange={this.handleChange}/>
+  <input type="text" name="lastName" id="name" placeholder="Cognome" required value={this.state.lastName} onChange={this.handleChange}/>
   <label id="icon" htmlFor="name"><i className="icon-shield"></i></label>
   <input type="password" name="password" id="name" placeholder="Password" required value={this.state.password} onChange={this.handleChange}/>
    <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>

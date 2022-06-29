@@ -1,5 +1,6 @@
+import React, {useContext, useEffect, useState} from 'react';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import * as React from 'react';
+import { Badge } from "@mui/material";
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -12,10 +13,17 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { display } from '@mui/system';
 import { NavLink } from 'react-router-dom';
 import "../styles/header.css";
+import authServices from '../helpers/auth.js';
+import { useNavigate } from 'react-router-dom';
+import CartContext from '../contexts/CartContext';
+
+const logout = () => {
+  authServices.logout()
+  .then(data => console.log(data))
+  .then(err => console.log(err))
+}
 
 const pages = [{
     Label: 'Menu',
@@ -23,15 +31,21 @@ const pages = [{
 },{
     Label: 'Ordini',
     Path: '/orders'
-},{
-    Label: 'Carrello',
-    Path: '/cart'
 }];
-const settings = ['Logout'];
+const settings = [{
+  label: 'Logout',
+  cb: logout
+}];
 
-const ResponsiveAppBar = () => {
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
-  const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+
+function ResponsiveAppBar(props) {
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [cartItems, setCartItems] = useState(0)
+  const navigate = useNavigate();
+  
+  const { count, setCount}  = useContext(CartContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -47,6 +61,11 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const handleCartButton = () => {
+      navigate("./cart", {replace:true})
+  }
+
 
   return (
     <AppBar position="static">
@@ -148,6 +167,14 @@ const ResponsiveAppBar = () => {
             ))}
           </Box>
 
+          <Box>
+          <Tooltip title="Vai al carrello">
+              <IconButton onClick={handleCartButton} sx={{ p: 0 }}>
+                <Badge badgeContent={count}><ShoppingCartIcon /></Badge>
+              </IconButton>
+            </Tooltip>
+          </Box>
+
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -171,8 +198,8 @@ const ResponsiveAppBar = () => {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting.label} onClick={settings.cb}>
+                  <Typography textAlign="center">{setting.label}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -183,25 +210,3 @@ const ResponsiveAppBar = () => {
   );
 };
 export default ResponsiveAppBar;
-
-
-// class Header extends React.Component{
-//     constructor(){
-//         super();
-//     }
-
-//     render() {
-//         return(
-//             <header className="dk-header">
-//                 <div className="img">
-//                     <img src="../img/logo_header.png" alt="" />
-//                 </div>
-//                 <div>
-//                     <ShoppingCartIcon/>
-//                 </div>
-//             </header>  
-//         );
-//     }
-// }
-
-// export default Header;

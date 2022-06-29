@@ -117,7 +117,7 @@ body {
 
 .login__input {
 	border: none;
-	border-bottom: 2px solid var(--ATOMIC);
+	/* border-bottom: 2px solid var(--ATOMIC); */
 	background: none;
     color: var(--BLU_POLIBA);
 	padding: 10px;

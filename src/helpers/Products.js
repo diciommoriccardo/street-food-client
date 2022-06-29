@@ -4,17 +4,16 @@ import Cookies from "universal-cookie";
 const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/products/`;
 const cookie = new Cookies()
 const accessToken = cookie.get('accessToken');
-console.log(accessToken)
 const HEADERS = {
-    'Authorization': `Bearer ${cookie.get('accessToken')}`,
+    'Authorization': `Bearer ${accessToken}`,
     'Content-Type': 'application/json',
 }
 
 
 export default {
-    getAll: () => {
+    getAll: (offset, limit) => {
         return new Promise((resolve, reject) => {
-            fetch(URL, {
+            fetch(`${URL}?offset=${offset}&limit=${limit}`, {
                 headers: HEADERS
             })
             .then(response => response.json())
@@ -24,9 +23,14 @@ export default {
     },
 
     getAllForCategory: (category) => {
-        fetch(`${URL}/${category}`)
-        .then(data => data.json())
-        .then(json => json)
-        .catch(err => console.log(err))
+        return new Promise((resolve, reject) => {
+            fetch(`${URL}/category/${category}`,{
+                headers: HEADERS
+            })
+            .then(data => data.json())
+            .then(json => {console.log(json); return resolve(json)})
+            .catch(err => {console.log(err); return reject(err)})
+        })
+        
     }
 }

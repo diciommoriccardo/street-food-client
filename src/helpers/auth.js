@@ -39,5 +39,17 @@ export default{
             .then(data => resolve(data))
             .catch(err => reject(err))
         })
+    },
+
+    logout: () => {
+        return new Promise((resolve, reject) => {
+            fetch(`${URL}/logout`,{
+                method: 'POST',
+                headers: HEADERS
+            })
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        })
     }
 }

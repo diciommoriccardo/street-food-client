@@ -3,8 +3,9 @@ import Cookie from 'universal-cookie'
 
 const cookie = new Cookie();
 const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/orders`
+const accessToken = cookie.get('accessToken');
 const HEADERS = {
-    'Authorization': `Bearer ${cookie.get('accessToken')}`,
+    'Authorization': `Bearer ${accessToken}`,
     'Content-type': 'application/json'
 }
 

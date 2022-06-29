@@ -1,59 +1,45 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import '../styles/login.css';
 import GoogleIcon from '@mui/icons-material/Google';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import authServices from '../helpers/auth.js';
 import { Navigate, useNavigate } from "react-router-dom";
+import UserContext from "../contexts/UserContext";
 
-class Login extends React.Component{
-    constructor(props){
-        super(props);
-		this.state={
-			email: '',
-			password: ''
-		}
-        this.checkToken = this.checkToken.bind(this);
-		this.handleSubmit = this.handleSubmit.bind(this);
-		this.handleChange = this.handleChange.bind(this);
-    }
+function Login(props){
+	const [loginEmail, setLoginEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const navigate = useNavigate();
+	const {user, setUser, loggedIn, setLoggedIn} = useContext(UserContext) 
 
-    checkToken(){
-
-    }
-
-    async handleSubmit(e){
+	const handleSubmit = (e) => {
         e.preventDefault();
-		authServices.login(this.state.email, this.state.password)
+		authServices.login(loginEmail, password)
 		.then(data => {
-			console.log(data)
+			console.log(data.user)
+			setUser(data.user)
+			setLoggedIn(true)
+			navigate("../menu", {replace:true})
 		})
 		.catch(err => alert(err))
 	}
 
-	handleChange(e){
-  		this.setState({
-    		[e.target.name]: e.target.value
-  		});
-	}
-
-
-    render(){
-        return(
-            <div className="container">
+	return (
+		<div className="container">
 	<div className="screen">
 		<div className="screen__content"> 
 			<form className="login"> 
                 <h1 className="titolo_login"> EFFETTUA QUI IL TUO LOGIN! </h1>
 				<div className="login__field">
                     <PersonIcon className="login__icon"/>
-					<input type="text" className="login__input" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange} />
+					<input type="text" className="login__input" placeholder="Email" name="email" value={loginEmail} onChange={(e) => setLoginEmail(e.target.value)} />
 				</div>
 				<div className="login__field">
                     <LockIcon className="login__icon"/>
-					<input type="password" className="login__input" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange}/>
+					<input type="password" className="login__input" placeholder="Password" name="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
 				</div>
-				<button className="button login__submit" onClick={this.handleSubmit}>
+				<button className="button login__submit" onClick={handleSubmit}>
 					<span className="button__text">Login Now</span>
 					<i className="button__icon fas fa-chevron-right"></i>
 				</button>				
@@ -73,8 +59,7 @@ class Login extends React.Component{
 		</div>		
 	</div>
 </div>
-)
-    }
+	)
 }
 
-export default Login;
+export default Login

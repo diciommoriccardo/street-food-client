@@ -1,12 +1,10 @@
 import React, {createContext} from "react"
 
 const UserContext = createContext({
-    email: '',
-    setEmail: () => {},
-    displayName: '',
-    setDisplayName: () => {},
-    type: '',
-    setType: () => {}
+    user: {},
+    setUser: () => {},
+    loggedIn: false,
+    setLoggedIn: () => {}
 })
 
 export default UserContext;

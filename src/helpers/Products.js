@@ -1,4 +1,4 @@
-import { PROXY, SERVER_REST } from "../config/config";
+import { SERVER_REST } from "../config/config";
 import Cookies from "universal-cookie";
 
 const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/products/`;

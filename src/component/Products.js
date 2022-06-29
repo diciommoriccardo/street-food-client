@@ -34,9 +34,11 @@ function Product (props){
     <Button size="small" onClick={() => {
       setCount(count => count+1);
       localStorage.setItem(props._id, JSON.stringify({
+        _id: props._id,
         image: props.img,
         displayName: props.displayName,
-        description: props.description
+        description: props.description,
+        price: props.price
       }))
       }}><AddShoppingCartIcon /></Button>
     {/* <Button size="small">Learn More</Button> */}

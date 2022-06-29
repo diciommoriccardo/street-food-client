@@ -17,6 +17,19 @@ export default{
         .then(data => {console.log(data); return data;})
         .catch(err => console.log(err))
     },
+
+    add: (order) => {
+        return new Promise((resolve, reject) => {
+            fetch(`${URL}`, {
+                method: 'POST',
+                headers: HEADERS,
+                body: JSON.stringify(order)
+            })
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        })
+    }
 }
 // export default {
     

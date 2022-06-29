@@ -1,17 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartContext from "../contexts/CartContext";
+import UserContext from "../contexts/UserContext";
 import ButtonPopup from "./ButtonPopup";
 import MenuHeader from "./menuHeader";
 import ProductsList from "./productsList";
 
 function MenuContent(props){
-    const updateCart = props.updateCart
+    const { user, setUSert, loggedIn, setLoggedIn } = useContext(UserContext);    
 
     return(
         <div>
             <MenuHeader />
             <ProductsList />
-            <ButtonPopup />
+            {user.type === 'admin' ? <ButtonPopup /> : <></>}
         </div>
 
     )

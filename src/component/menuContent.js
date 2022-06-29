@@ -11,7 +11,7 @@ function MenuContent(props){
         <div>
             <MenuHeader />
             <ProductsList />
-            <ButtonPopup>AggiuntaProdotto</ButtonPopup>
+            <ButtonPopup />
         </div>
 
     )

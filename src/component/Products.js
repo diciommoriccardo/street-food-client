@@ -31,7 +31,14 @@ function Product (props){
     </Typography>
   </CardContent>
   <CardActions>
-    <Button size="small" onClick={() => {setCount(count => count+1)}}><AddShoppingCartIcon /></Button>
+    <Button size="small" onClick={() => {
+      setCount(count => count+1);
+      localStorage.setItem(props._id, JSON.stringify({
+        image: props.img,
+        displayName: props.displayName,
+        description: props.description
+      }))
+      }}><AddShoppingCartIcon /></Button>
     {/* <Button size="small">Learn More</Button> */}
   </CardActions>
 </Card>

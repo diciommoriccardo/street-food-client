@@ -32,5 +32,18 @@ export default {
             .catch(err => {console.log(err); return reject(err)})
         })
         
+    },
+
+    add: (product) => {
+        return new Promise((resolve, reject) => {
+            fetch(`${URL}`, {
+                method: 'POST',
+                headers: HEADERS,
+                body: JSON.stringify(product),
+            })
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        })
     }
 }

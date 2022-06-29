@@ -10,7 +10,7 @@ export default function ButtonPopup(props)
         const [buttonPopup, setButtonPopup]= useState(false);
         return(
             <div>
-            <button className="buttonordine" onClick={()=> setButtonPopup(true)}> Aggiungi un nuvo prodotto</button>
+            <button className="buttonordine" onClick={()=> setButtonPopup(true)}> Aggiungi un nuovo prodotto</button>
             <AddProduct trigger={buttonPopup} setTrigger={setButtonPopup}></AddProduct>
             </div>
 

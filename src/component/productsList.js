@@ -19,6 +19,7 @@ export default function ProductsList(props){
             setOffset(offset + data.length)
             setProducts(current => [...current, data.map(row => {
                 return <Product 
+                    _id={row._id}
                     displayName={row.displayName} 
                     description={row.description} 
                     price={row.price}
@@ -34,6 +35,7 @@ export default function ProductsList(props){
         .then(data => {
             setProducts(current => [...current, data.map(row => {
                 return <Product 
+                    _id={row._id}
                     displayName={row.displayName} 
                     description={row.description} 
                     price={row.price}

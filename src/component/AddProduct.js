@@ -43,12 +43,21 @@ export default function AddProduct(props) {
       autoComplete="on"
     >
      <div className='inner'>
+<<<<<<< HEAD
+      <div className='AggiuntaProdotto'>
+     
+      <TextField className='AggiuntaProdotto' id="Nome prodotto" label="Nome" variant="filled" />
+      <TextField className='AggiuntaProdotto' id="Ricetta" label="Ricetta" variant="filled" />
+      <TextField className='AggiuntaProdotto' id="Descrizione" label="Breve descrizione" variant="filled" />
+      <TextField className='AggiuntaProdotto' id="Linkimmagine" label="Link immagine" variant="filled" /><p>Carica l' immagine tramite ftp nella cartella FotoProdotti</p>
+=======
       <div className='AggiuntaProdottocontainer'>
       <button className="ButtonClose" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</button>
       <TextField className='AggiuntaProdotto' id="Nome prodotto" label="Nome" variant="outlined" />
       <TextField className='AggiuntaProdotto' id="Ricetta" label="Ricetta" variant="outlined" />
       <TextField className='AggiuntaProdotto' id="Descrizione" label="Breve descrizione" variant="outlined" />
       <DropzoneArea> </DropzoneArea>
+>>>>>>> 0b3c5053d7c14c3171c689fbe2ed2b7c799f65f8
 
         <TextField
           className='AggiuntaProdottoCategoria'
@@ -70,6 +79,7 @@ export default function AddProduct(props) {
           ))}
         </TextField>
       </div>
+      <button className="button button2" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</button>
       </div>
       
     </Box>

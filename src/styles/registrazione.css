@@ -102,7 +102,7 @@ input[type=radio]:checked + label:after {
 
 
 
-input[type=text],input[type=password]{
+#name[type=text],#name[type=password]{
   width: 200px; 
   height: 39px; 
   border-radius: 0px 4px 4px 0px/5px 5px 4px 4px; 

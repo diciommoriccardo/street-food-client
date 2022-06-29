@@ -1,0 +1,16 @@
+@font-face {
+    font-family: "Josefine";
+    src: url("../assets/ubunt/josefinsans/JosefinSans-Italic-VariableFont_wght.ttf") format("truetype");
+  }
+
+  .buttonordine{
+    font-size: 15px;
+	margin-left: auto;
+	color:var(--BLU_POLIBA);
+    box-shadow: 2px 5px 5px black; 
+    border: solid 0px #cbc9c9;
+}
+
+.buttonordine:hover{
+    box-shadow: none;
+}

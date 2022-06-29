@@ -10,7 +10,7 @@ import { SERVER_SOCKET } from './config/config';
 import {BrowserRouter as Router, Navigate, Route, Routes, withRouter} from 'react-router-dom';
 import { io } from 'socket.io-client';
 import Cookies from 'universal-cookie';
-import {useJwt, decodeToken} from 'react-jwt'
+import {useJwt, decodeToken, isExpired} from 'react-jwt'
 import UserContext from './contexts/UserContext';
 import CartContext from './contexts/CartContext';
 
@@ -20,10 +20,22 @@ import CartContext from './contexts/CartContext';
 
 function App(){
   const [user, setUser] = useState({});
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(true);
   const userValue = { user, setUser, loggedIn, setLoggedIn }
   const [count, setCount] = useState(0)
   const cartValue = { count, setCount };
+  const cookie = new Cookies()
+  let token = cookie.get('accessToken');
+
+  useEffect(() => {
+    let tokenExpired = isExpired(token)
+    console.log("is expired: " +tokenExpired)
+    if(tokenExpired) return setLoggedIn(false)
+      
+    setLoggedIn(true)
+
+    console.log("login status: " + loggedIn)
+  })
 
 
   return(
@@ -35,10 +47,9 @@ function App(){
             <main >
             <section> 
               <Routes>
-                  <Route exact path="/menu" element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> }>
-                    <Route path=':category' element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> } />
-                  </Route>
-                
+                <Route exact path="/menu" element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> }>
+                  <Route path=':category' element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> } />
+                </Route>
                 <Route path="/orders" element={loggedIn ? <Orders /> : <Navigate to="/login" replace={true} /> } />
                 <Route path="/cart" element={loggedIn ? <Cart /> : <Navigate to="/login" replace={true} /> } />
                 <Route path='/login' element={<Login />} />

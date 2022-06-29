@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import CartServices from "../helpers/Cart";
-import Product from "./Products";
+import CartProducts from './CartProducts';
 
 function Cart(props){
     const [products, setProducts] = useState([])
@@ -10,13 +10,14 @@ function Cart(props){
     const getCart = () => {
             CartServices.getAllLocal()
             .then(data => {
-                console.log(data)
-                setProducts(previous => [...previous, data.map(prod => 
-                    <Product 
-                        img={prod.image}
-                        displayName={prod.displayName}
-                        description={prod.description}
+                setProducts(previous => [...previous, data.map(prod => {
+                    let row = JSON.parse(JSON.stringify(prod))
+                    return <CartProducts 
+                        img={row.image}
+                        displayName={row.displayName}
+                        description={row.description}
                     /> 
+                }
                 )])
             })
     }

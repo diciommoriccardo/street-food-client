@@ -6,10 +6,10 @@ export default{
             let keys = Object.keys(localStorage)
 
             keys.forEach(index => {
-                // console.log(JSON.parse(localStorage.getItem(index)))
                 products.push(JSON.parse(localStorage.getItem(index)))
             })
-
+            
+            console.log(products)
             resolve(products)
         })
     }

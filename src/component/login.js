@@ -4,7 +4,7 @@ import GoogleIcon from '@mui/icons-material/Google';
 import PersonIcon from '@mui/icons-material/Person';
 import LockIcon from '@mui/icons-material/Lock';
 import authServices from '../helpers/auth.js';
-import { Navigate, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import UserContext from "../contexts/UserContext";
 
 function Login(props){
@@ -18,9 +18,13 @@ function Login(props){
 		authServices.login(loginEmail, password)
 		.then(data => {
 			console.log(data.user)
-			setUser(data.user)
+			setUser({
+				email: data.user.email,
+				displayName: data.user.displayName,
+				type: data.user.type
+			})
 			setLoggedIn(true)
-			navigate("../menu", {replace:true})
+			navigate("../menu")
 		})
 		.catch(err => alert(err))
 	}
@@ -42,7 +46,13 @@ function Login(props){
 				<button className="button login__submit" onClick={handleSubmit}>
 					<span className="button__text">Login Now</span>
 					<i className="button__icon fas fa-chevron-right"></i>
-				</button>				
+				</button>
+				<NavLink to={"/signup"}>
+					<button className="button login__submit">
+						<span className="button__text">Registrati</span>
+						<i className="button__icon fas fa-chevron-right"></i>
+					</button>
+				</NavLink>				
 			</form>
 			<div className="social-login">
 				<div className="social-icons">

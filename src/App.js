@@ -26,16 +26,15 @@ function App(){
   const cartValue = { count, setCount };
   const cookie = new Cookies()
   let token = cookie.get('accessToken');
+  console.log(userValue)
+
 
   useEffect(() => {
     let tokenExpired = isExpired(token)
-    console.log("is expired: " +tokenExpired)
     if(tokenExpired) return setLoggedIn(false)
       
     setLoggedIn(true)
-
-    console.log("login status: " + loggedIn)
-  })
+  }, [])
 
 
   return(

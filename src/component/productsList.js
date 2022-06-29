@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Product from './Products.js'
 import productsServices from "../helpers/Products.js";
 import { useParams, useLocation } from "react-router-dom";
+import CartContext from "../contexts/CartContext.js";
 
-export default function ProductsList(){
+export default function ProductsList(props){
     let [products, setProducts] = useState([]);
     let [active, setActive] = useState(null);
     let [offset, setOffset] = useState(0);
@@ -14,12 +15,14 @@ export default function ProductsList(){
     const getAllProducts = () => {
         productsServices.getAll(offset, limit)
         .then(data => {
+            console.log(data)
             setOffset(offset + data.length)
             setProducts(current => [...current, data.map(row => {
                 return <Product 
                     displayName={row.displayName} 
                     description={row.description} 
-                    price={row.price} 
+                    price={row.price}
+                    img={row.imgUrl}
                 />
             })])
         })
@@ -34,6 +37,7 @@ export default function ProductsList(){
                     displayName={row.displayName} 
                     description={row.description} 
                     price={row.price}
+                    img={row.imgUrl}
                 /> 
             })])
         })

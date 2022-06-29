@@ -20,8 +20,6 @@
     right: 16px;
 }
 
-<<<<<<< HEAD
-}
 .AggiuntaProdotto{
     justify-content: center;
     display: inline;
@@ -50,7 +48,6 @@
   .button2:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
   }
-=======
 .ButtonClose{
     font-size: 15px;
     display: block;
@@ -72,4 +69,3 @@
     border-radius: 6%;
     box-shadow: var(--ATOMIC);
 }
->>>>>>> 0b3c5053d7c14c3171c689fbe2ed2b7c799f65f8

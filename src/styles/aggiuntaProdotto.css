@@ -1,5 +1,5 @@
 .popup {
-    position: fixed;
+    position: absolute;
     width: 100%;
     height:100%;
     background-color: var(--POWDER);
@@ -20,10 +20,18 @@
     right: 16px;
 }
 
+.AggiuntaProdotto3,
+.AggiuntaProdotto2,
+.AggiuntaProdotto1
+{
+    color: var(--BLU_POLIBA);
+}
+
 .AggiuntaProdotto{
-    padding: 10%
+    padding: 10%;
 
 }
+
 .button {
     background-color: #106bcc; /* Green */
     border: none;
@@ -66,4 +74,8 @@
     background-color: white;
     border-radius: 6%;
     box-shadow: var(--ATOMIC);
+}
+
+.MuiButtonBase-root-MuiButton-root{
+    background-color: red;
 }

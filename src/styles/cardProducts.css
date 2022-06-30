@@ -1,0 +1,36 @@
+@font-face {
+    font-family: "Josefine";
+    src: url("../assets/ubunt/josefinsans/JosefinSans-Italic-VariableFont_wght.ttf") format("truetype");
+  }
+  
+
+.MuiCardMedia-root{
+    background-color: var(--POWDER);
+    display: inline;
+}
+
+.MuiCard-root{
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.MuiCardContent-root{
+    color: var(--BLU_POLIBA);
+    font-family: Josefine;
+}
+
+.MuiCardActions-root{
+    display: flex;
+    align-items: center;
+}
+
+.prodotti{
+    display: flex;
+    gap: 30px;
+    margin: 50px;
+}
+/* .css-1ri6ub7-MuiPaper-root-MuiCard-root{
+    display: flex;
+    flex-direction: column;
+align-items: center;
+} */

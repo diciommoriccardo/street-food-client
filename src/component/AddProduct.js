@@ -53,10 +53,10 @@ export default function AddProduct(props) {
     >
      <div className='inner'>
       <div className='AggiuntaProdotto'>
-      <TextField className='AggiuntaProdotto' id="prodName" label="Nome" variant="filled" value={prodName} onChange={(e) => setProdName(e.target.value)}/>
-      <TextField className='AggiuntaProdotto' id="description" label="Descrizione" variant="filled" value={description} onChange={(e) => setDescription(e.target.value)}/>
-      <TextField className='AggiuntaProdotto' id="price" label="Prezzo" variant="filled" value={price} onChange={(e) => setPrice(e.target.value)}/>
-      <Button variant="contained" component="label"><input type="file" id='prodImage' onChange={(file) => setProdImage(file)}/></Button>
+      <TextField className='AggiuntaProdotto1' id="prodName" label="Nome" variant="filled" value={prodName} onChange={(e) => setProdName(e.target.value)}/>
+      <TextField className='AggiuntaProdotto2' id="description" label="Descrizione" variant="filled" value={description} onChange={(e) => setDescription(e.target.value)}/>
+      <TextField className='AggiuntaProdotto3' id="price" label="Prezzo" variant="filled" value={price} onChange={(e) => setPrice(e.target.value)}/>
+      <Button style={{backgroundColor: 'var(--BLU_POLIBA)', padding: '10px 10px'}} id="formdrag" variant="contained" component="label"><input type="file" id='prodImage' onChange={(file) => setProdImage(file)}/></Button>
         <TextField
           className='AggiuntaProdotto'
           id="Categoria"
@@ -77,7 +77,9 @@ export default function AddProduct(props) {
           ))}
         </TextField>
       </div>
-      <Button className="ButtonClose" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</Button>
+      <Button style={{
+            backgroundColor: 'var(--BLU_POLIBA)', color: 'white'
+          }} className="ButtonClose" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</Button>
       <Button className="ButtonSubmit" onClick={()=>handleSubmit()}>Aggiungi prodotto</Button>
       </div>
       

@@ -3,6 +3,7 @@ import Product from './Products.js'
 import productsServices from "../helpers/Products.js";
 import { useParams, useLocation } from "react-router-dom";
 import CartContext from "../contexts/CartContext.js";
+import "../styles/cardProducts.css";
 
 export default function ProductsList(props){
     let [products, setProducts] = useState([]);
@@ -60,7 +61,7 @@ export default function ProductsList(props){
 
     return (
         products.length > 0 ? (
-            <div>
+            <div className="prodotti">
                 {products}
             </div>
         ) : <p>Nessun prodotto trovato</p>

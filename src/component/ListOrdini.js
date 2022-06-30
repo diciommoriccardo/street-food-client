@@ -1,6 +1,7 @@
 import React from 'react';
 import RecipeReviewCard from './Componenti';
 import Orders from '../helpers/Orders.js';
+import "../styles/ordersList.css";
 
 
 class ListOrdini extends React.Component {
@@ -36,7 +37,7 @@ class ListOrdini extends React.Component {
         return (
             this.state.RecipeReviewCard.length > 0 ? (
                 <>
-                    <div className="row">
+                    <div className="rowOrdini">
                         {this.state.RecipeReviewCard}
                     </div>
                     <div className="row">

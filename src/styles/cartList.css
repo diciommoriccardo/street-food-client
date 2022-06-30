@@ -1,0 +1,29 @@
+.carrello{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.MuiCardMedia-root{
+    background-color: var(--POWDER);
+    display: inline;
+}
+
+.MuiCard-root{
+    padding: 50px;
+    border-radius: 10px;
+}
+
+.MuiCardContent-root{
+    color: var(--BLU_POLIBA);
+    font-family: Josefine;
+}
+
+.MuiCardActions-root{
+    display: flex;
+    align-items: center;
+}
+
+.pagamento{
+    margin: 20px;;
+}

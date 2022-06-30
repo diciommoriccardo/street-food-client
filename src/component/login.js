@@ -14,19 +14,21 @@ function Login(props){
 	const {user, setUser, loggedIn, setLoggedIn} = useContext(UserContext) 
 
 	const handleSubmit = (e) => {
-        e.preventDefault();
-		authServices.login(loginEmail, password)
-		.then(data => {
-			console.log(data.user)
-			setUser({
-				email: data.user.email,
-				displayName: data.user.displayName,
-				type: data.user.type
+		return new Promise((resolve) => {
+			e.preventDefault();
+			authServices.login(loginEmail, password)
+			.then(data => {
+				console.log(data)
+				setUser({
+					email: data.user.email,
+					displayName: data.user.displayName,
+					type: data.user.type
+				})
+				setLoggedIn(true)
+				resolve(navigate("../menu"))
 			})
-			setLoggedIn(true)
-			navigate("../menu")
+			.catch(err => alert(err))
 		})
-		.catch(err => alert(err))
 	}
 
 	return (

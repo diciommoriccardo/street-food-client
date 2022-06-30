@@ -12,7 +12,7 @@ class Registrazione extends React.Component{
           password: '',
           firstName: '',
           lastName: '',
-          account: '',
+          type: '',
           source: 'local'
         }
         this.handleChange = this.handleChange.bind(this);

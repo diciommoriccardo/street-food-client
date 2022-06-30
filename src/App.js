@@ -32,7 +32,14 @@ function App(){
   useEffect(() => {
     let tokenExpired = isExpired(token)
     if(tokenExpired) return setLoggedIn(false)
+
+    let decodedToken = decodeToken(token)
       
+    setUser({
+      email: decodedToken.email,
+      displayName: decodedToken.displayName,
+      type: decodedToken.type
+    })
     setLoggedIn(true)
   }, [])
 

@@ -77,5 +77,24 @@ export default {
             .then(data => resolve(data))
             .catch(err => reject(err))
         })
+    },
+
+    updateOne: (product) => {
+        return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+            }
+
+            console.log(product)
+
+            fetch(`${URL}`, {
+                method: 'PUT',
+                headers: HEADERS,
+                body: product
+            })
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        })
     }
 }

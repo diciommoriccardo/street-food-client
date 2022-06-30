@@ -6,7 +6,7 @@ import MenuContent from './component/menuContent';
 import Orders from './component/Orders';
 import Cart from './component/Cart';
 import Login from './component/login';
-import { SERVER_SOCKET } from './config/config';
+import UpdateProduct from './component/UpdateProduct';
 import {BrowserRouter as Router, Navigate, Route, Routes, withRouter} from 'react-router-dom';
 import { io } from 'socket.io-client';
 import Cookies from 'universal-cookie';
@@ -34,6 +34,7 @@ function App(){
     if(tokenExpired) return setLoggedIn(false)
 
     let decodedToken = decodeToken(token)
+    console.log(decodedToken)
       
     setUser({
       email: decodedToken.email,
@@ -53,14 +54,14 @@ function App(){
             <main >
             <section> 
               <Routes>
-                <Route exact path="/menu" element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> }>
-                  <Route path=':category' element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> } />
+                <Route path="/menu" element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> }>
+                  <Route exact path=':category' element={loggedIn ? <MenuContent /> : <Navigate to="/login" replace={true} /> } />
                 </Route>
                 <Route path="/orders" element={loggedIn ? <Orders /> : <Navigate to="/login" replace={true} /> } />
                 <Route path="/cart" element={loggedIn ? <Cart /> : <Navigate to="/login" replace={true} /> } />
+                <Route exact path='/update' element={loggedIn ? <UpdateProduct /> : <Navigate to="/login" replace={true} />} />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Registrazione />} /> 
-              
               
             </Routes>
           </section>

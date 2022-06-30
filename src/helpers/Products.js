@@ -1,5 +1,6 @@
 import { SERVER_REST } from "../config/config";
 import Cookies from "universal-cookie";
+import "../styles/cardProducts.css";
 
 const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/products/`;
 const cookie = new Cookies()

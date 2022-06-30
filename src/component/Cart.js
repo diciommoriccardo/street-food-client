@@ -64,10 +64,10 @@ function Cart(props){
                 <div>
                     <h1>Carrello</h1>
                 </div>
-                <div>
+                <div className="carrello">
                     {products}
                 </div>
-                <div>
+                <div className="pagamento">
                     <Button color="success" startIcon={<LocalAtmIcon/>} onClick={handleSubmit}>Procedi al pagamento</Button>
                 </div>
             </div>

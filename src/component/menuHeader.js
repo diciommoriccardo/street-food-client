@@ -1,33 +1,34 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import "../styles/header.css";
 
 export default function MenuHeader() {
         return(
-            <header>
-                <h3>
-                    Consulta il nostro menù
+            <header className= "container_header">
+                <h3 className= "h3">
+                    CONSULTA IL NOSTRO MENU
                 </h3>
                     <nav>
                         <NavLink to={{
                             pathname:"/menu/panino"
                         }}>
-                        Panini
+                        PANINI 
                         </NavLink>
                         <NavLink to={{
                             pathname:"/menu/pizza",
-                            state: {active:"pizze"}
+                            state: {active:"pizze "}
                         }}>
-                        Pizze
+                        PIZZE
                         </NavLink>
                         <NavLink to={{
                             pathname:"/menu/bibite"
                         }}>
-                        Bibite
+                        BIBITE 
                         </NavLink>
                         <NavLink to={{
                             pathname:"/menu/dessert"
                         }}>
-                        Dessert
+                        DESSERT
                         </NavLink>
                     </nav>
             </header>

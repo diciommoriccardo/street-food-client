@@ -1,0 +1,18 @@
+.rowOrdini{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.MuiCard-root{
+    /* background: rgb(246,142,95);
+background: linear-gradient(90deg, rgba(246,142,95,1) 0%, rgba(246,142,95,1) 35%, rgba(255,255,255,1) 100%); */
+    display: inline;
+    padding: 100px;
+}
+
+.MuiCardMedia-root{
+    background-color: var(--POWDER);
+    display: inline;
+}

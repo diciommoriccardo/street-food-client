@@ -12,7 +12,6 @@ function Cart(props){
     const [total, setTotal] = useState(0)
 
     const { user, setUser, loggedIn, setLoggedIn } = useContext(UserContext);
-    console.log(user)
 
     const getCart = () => {
             CartServices.getAllLocal()

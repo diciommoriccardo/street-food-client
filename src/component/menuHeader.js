@@ -12,23 +12,23 @@ export default function MenuHeader() {
                         <NavLink to={{
                             pathname:"/menu/panino"
                         }}>
-                        PANINI 
+                        <p>PANINI  </p>
                         </NavLink>
                         <NavLink to={{
                             pathname:"/menu/pizza",
                             state: {active:"pizze "}
                         }}>
-                        PIZZE
+                        <p>PIZZE  </p>
                         </NavLink>
                         <NavLink to={{
                             pathname:"/menu/bibite"
                         }}>
-                        BIBITE 
+                        <p>BIBITE </p> 
                         </NavLink>
                         <NavLink to={{
                             pathname:"/menu/dessert"
                         }}>
-                        DESSERT
+                        <p>DESSERT</p>
                         </NavLink>
                     </nav>
             </header>

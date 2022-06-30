@@ -48,13 +48,13 @@ export default {
             const accessToken = cookie.get('accessToken');
             const HEADERS = {
                 'Authorization': `Bearer ${accessToken}`,
-                'Content-Type': 'application/json',
+                
             }
 
             fetch(`${URL}`, {
                 method: 'POST',
                 headers: HEADERS,
-                body: JSON.stringify(product),
+                body: product,
             })
             .then(response => response.json())
             .then(data => resolve(data))

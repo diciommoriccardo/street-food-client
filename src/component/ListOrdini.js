@@ -22,9 +22,11 @@ class ListOrdini extends React.Component {
                     RecipeReviewCard: [...this.state.RecipeReviewCard, data.map(ordine =>{
                         console.log(ordine)
                         return <RecipeReviewCard 
+                                    _id={ordine._id}
                                     data={ordine.date} 
                                     price={ordine.price} 
                                     description={ordine.description}
+                                    status={ordine.status}
                                 />
                     })],
                         

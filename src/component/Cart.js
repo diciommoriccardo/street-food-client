@@ -45,7 +45,7 @@ function Cart(props){
             date: Date(),
             price: total,
             items: productsInfo,
-            status: `Pagato`
+            status: `pagato`
         })
         .then(data => {
             alert("Grazie per aver odinato, ecco il suo ordine: " + data.description)

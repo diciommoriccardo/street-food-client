@@ -37,6 +37,25 @@ export default{
             .then(data => resolve(data))
             .catch(err => reject(err))
         })
+    },
+
+    updateStatus: (order) => {
+        return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-type': 'application/json'
+            }
+
+            fetch(`${URL}`, {
+                method: 'PUT',
+                headers: HEADERS,
+                body: JSON.stringify(order)
+            })
+            .then(response => response.json())
+            .then(data => resolve(data))
+            .catch(err => reject(err))
+        })
     }
 }
 // export default {

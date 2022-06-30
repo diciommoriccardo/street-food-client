@@ -3,14 +3,16 @@ import Cookie from 'universal-cookie'
 
 const cookie = new Cookie();
 const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/orders`
-const accessToken = cookie.get('accessToken');
-const HEADERS = {
-    'Authorization': `Bearer ${accessToken}`,
-    'Content-type': 'application/json'
-}
+
 
 export default{
     getAll: (next = null) => {
+        const accessToken = cookie.get('accessToken');
+        const HEADERS = {
+            'Authorization': `Bearer ${accessToken}`,
+            'Content-type': 'application/json'
+        }
+
         return fetch(URL, {
             headers: HEADERS
         }).then(res => res.json())
@@ -20,6 +22,12 @@ export default{
 
     add: (order) => {
         return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-type': 'application/json'
+            }
+
             fetch(`${URL}`, {
                 method: 'POST',
                 headers: HEADERS,

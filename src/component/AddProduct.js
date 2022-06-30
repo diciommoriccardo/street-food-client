@@ -4,25 +4,9 @@ import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import Products from '../helpers/Products';
 import '../styles/aggiuntaProdotto.css'
+import {useNavigate} from 'react-router-dom';
 
-const category = [
-  {
-    value: 'panino',
-    label: 'Panini',
-  },
-  {
-    value: 'bibite',
-    label: 'Bibite',
-  },
-  {
-    value: 'pizza',
-    label: 'Pizze',
-  },
-  {
-    value: 'dessert',
-    label: 'Dessert',
-  },
-];
+
 
 export default function AddProduct(props) {
   const [currency, setCurrency] = useState('panino');
@@ -30,8 +14,27 @@ export default function AddProduct(props) {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [prodImage, setProdImage] = useState('');
-  const [category, setCategory] = useState('panino');
-
+  const [category, setCategory] = useState('');
+  const navigate = useNavigate();
+  
+  const cat = [
+    {
+      value: 'panino',
+      label: 'Panini',
+    },
+    {
+      value: 'bibite',
+      label: 'Bibite',
+    },
+    {
+      value: 'pizza',
+      label: 'Pizze',
+    },
+    {
+      value: 'dessert',
+      label: 'Dessert',
+    },
+  ];
 
   const handleSubmit = (e) =>{
     
@@ -45,7 +48,8 @@ export default function AddProduct(props) {
       Products.add(formData)
     .then(data => {
       console.log(data)
-      resolve(alert("Prodotto agigunto"))
+      alert("Prodotto aggiunto")
+      resolve(navigate('../menu'))
       
     })
     .catch(err => alert(err))
@@ -84,7 +88,7 @@ export default function AddProduct(props) {
           helperText="Seleziona la categoria"
           variant="filled"
         >
-          {category.map((option) => (
+          {cat.map((option) => (
             <option key={option.value} value={option.value}>
               {option.label}
             </option>

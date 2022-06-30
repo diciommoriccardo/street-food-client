@@ -32,7 +32,7 @@ function Product (props){
 
 
   return(
-    <Card sx={{ maxWidth: 345 }} style={{ display:  cardDisplay ? 'block' : 'none'}}>
+    <Card sx={{ maxWidth: 345, minWidth: 300 }} style={{ display:  cardDisplay ? 'block' : 'none'}}>
   <CardMedia
     component="img"
     height="150"

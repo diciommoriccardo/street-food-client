@@ -1,33 +1,43 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import { Button } from '@mui/material';
 import '../styles/aggiuntaProdotto.css'
 
 const currencies = [
   {
-    value: 'Panini',
+    value: 'panino',
     label: 'Panini',
   },
   {
-    value: 'Bibite',
+    value: 'bibita',
     label: 'Bibite',
   },
   {
-    value: 'Pizze',
+    value: 'pizza',
     label: 'Pizze',
   },
   {
-    value: 'Menu',
-    label: 'Menu',
+    value: 'dessert',
+    label: 'Dessert',
   },
 ];
 
 export default function AddProduct(props) {
-  const [currency, setCurrency] = React.useState('EUR');
+  const [currency, setCurrency] = useState('EUR');
+  const [prodName, setProdName] = useState('');
+  const [description, setDescription] = useState('');
+  const [price, setPrice] = useState('');
+  const [prodImage, setProdImage] = useState('');
+
 
   const handleChange = (event) => {
     setCurrency(event.target.value);
   };
+
+  const handleSubmit = () =>{
+
+  }
 
   return (props.trigger) ?(
     <div className='popup'>
@@ -42,12 +52,10 @@ export default function AddProduct(props) {
     >
      <div className='inner'>
       <div className='AggiuntaProdotto'>
-      <button className="ButtonClose" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</button>
-      <TextField className='AggiuntaProdotto' id="Nome prodotto" label="Nome" variant="filled" />
-      <TextField className='AggiuntaProdotto' id="Ricetta" label="Ricetta" variant="filled" />
-      <TextField className='AggiuntaProdotto' id="Descrizione" label="Breve descrizione" variant="filled" />
-      <TextField className='AggiuntaProdotto' id="Linkimmagine" label="Link immagine" variant="filled" /><p>Carica l' immagine tramite ftp nella cartella FotoProdotti</p>
-
+      <TextField className='AggiuntaProdotto' id="prodName" label="Nome" variant="filled" />
+      <TextField className='AggiuntaProdotto' id="description" label="Descrizione" variant="filled" />
+      <TextField className='AggiuntaProdotto' id="price" label="Prezzo" variant="filled" />
+      <Button variant="contained" component="label"><input type="file" id='prodImage'/></Button>
         <TextField
           className='AggiuntaProdotto'
           id="Categoria"
@@ -68,6 +76,8 @@ export default function AddProduct(props) {
           ))}
         </TextField>
       </div>
+      <Button className="ButtonClose" onClick={()=>props.setTrigger(false) }>Chiudi aggiunta Prodotto</Button>
+      <Button className="ButtonSubmit" onClick={()=>handleSubmit()}>Aggiungi prodotto</Button>
       </div>
       
     </Box>

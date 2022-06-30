@@ -3,16 +3,18 @@ import Cookies from "universal-cookie";
 
 const URL = `http://${SERVER_REST.HOST}:${SERVER_REST.PORT}/api/v1/products/`;
 const cookie = new Cookies()
-const accessToken = cookie.get('accessToken');
-const HEADERS = {
-    'Authorization': `Bearer ${accessToken}`,
-    'Content-Type': 'application/json',
-}
+
 
 
 export default {
     getAll: (offset, limit) => {
         return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            }
+
             fetch(`${URL}?offset=${offset}&limit=${limit}`, {
                 headers: HEADERS
             })
@@ -24,6 +26,12 @@ export default {
 
     getAllForCategory: (category) => {
         return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            }
+
             fetch(`${URL}/category/${category}`,{
                 headers: HEADERS
             })
@@ -36,6 +44,12 @@ export default {
 
     add: (product) => {
         return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            }
+
             fetch(`${URL}`, {
                 method: 'POST',
                 headers: HEADERS,
@@ -49,6 +63,12 @@ export default {
 
     delete: (_id) => {
         return new Promise((resolve, reject) => {
+            const accessToken = cookie.get('accessToken');
+            const HEADERS = {
+                'Authorization': `Bearer ${accessToken}`,
+                'Content-Type': 'application/json',
+            }
+
             fetch(`${URL}/${_id}`, {
                 method: 'DELETE',
                 headers: HEADERS

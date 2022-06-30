@@ -170,7 +170,7 @@ function ResponsiveAppBar(props) {
           <Box>
           <Tooltip title="Vai al carrello">
               <IconButton onClick={handleCartButton} sx={{ p: 0 }}>
-                <Badge badgeContent={count}><ShoppingCartIcon /></Badge>
+                <Badge badgeContent={count} color="primary"><ShoppingCartIcon /></Badge>
               </IconButton>
             </Tooltip>
           </Box>

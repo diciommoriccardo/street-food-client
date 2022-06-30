@@ -29,6 +29,7 @@ export default function AddProduct(props) {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
   const [prodImage, setProdImage] = useState('');
+  const [category, setCategory] = useState('');
 
 
   const handleChange = (event) => {
@@ -52,10 +53,10 @@ export default function AddProduct(props) {
     >
      <div className='inner'>
       <div className='AggiuntaProdotto'>
-      <TextField className='AggiuntaProdotto' id="prodName" label="Nome" variant="filled" />
-      <TextField className='AggiuntaProdotto' id="description" label="Descrizione" variant="filled" />
-      <TextField className='AggiuntaProdotto' id="price" label="Prezzo" variant="filled" />
-      <Button variant="contained" component="label"><input type="file" id='prodImage'/></Button>
+      <TextField className='AggiuntaProdotto' id="prodName" label="Nome" variant="filled" value={prodName} onChange={(e) => setProdName(e.target.value)}/>
+      <TextField className='AggiuntaProdotto' id="description" label="Descrizione" variant="filled" value={description} onChange={(e) => setDescription(e.target.value)}/>
+      <TextField className='AggiuntaProdotto' id="price" label="Prezzo" variant="filled" value={price} onChange={(e) => setPrice(e.target.value)}/>
+      <Button variant="contained" component="label"><input type="file" id='prodImage' onChange={(file) => setProdImage(file)}/></Button>
         <TextField
           className='AggiuntaProdotto'
           id="Categoria"

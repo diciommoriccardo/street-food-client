@@ -23,16 +23,14 @@ function Product (props){
     productServices.delete(props._id)
     .then(data => {
       console.log(data)
+      setCardDisplay(false)
     })
     .catch(err => console.log(err))
   }
 
-  const remove = () =>{
-    setCardDisplay(false)
-  }
 
   return(
-    <Card sx={{ maxWidth: 345 }} style={{ display:  cardDisplay ? 'block' : 'none'}} onClick={remove}>
+    <Card sx={{ maxWidth: 345 }} style={{ display:  cardDisplay ? 'block' : 'none'}}>
   <CardMedia
     component="img"
     height="140"
